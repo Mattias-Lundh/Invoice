@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Invoice";
+}
+
+<h1>Upload your invoice here <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEycRKPEufkb7Q8CC_KjsXVd1DurT_OOCe9P0KqyA7fSg8F3o8" height="50px"></h1>
+
+<form id="invoceUpload">
+    <input class="btn btn-secondary" type="file" name="pdfFile" id="file" onchange="uploadFile()" />
+    <button class="btn btn-warning" type="submit">Process PDF</button>
+</form>
+
+<h1>Results</h1>
+
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Avi</div>
+    <div class="card-body">
+        <p data-bind="text: avi"></p>
+    </div>
+</div>
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Address</div>
+    <div class="card-body">
+        <p class="badge-pill" data-bind="text: address"></p>
+    </div>
+</div>
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">AmountDue (kr)</div>
+    <div class="card-body">
+        <p data-bind="text: amountDue"></p>
+    </div>
+</div>
