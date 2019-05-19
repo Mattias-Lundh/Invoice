@@ -25,7 +25,7 @@ function SendFile(file) {
     fd.append('file', file);
 
     $.ajax({
-        url: 'https://invoicepresentation.azurewebsites.net/api/invoice',
+        url: 'https://invoicepresentationapi.azurewebsites.net/api/invoice',
         data: fd,
         processData: false,
         contentType: false,
