@@ -38,7 +38,8 @@ namespace InvoiceAPI.Tools
                 }
             }
 
-            if (int.TryParse(sb.ToString(), out int result)) return result;
+            int result;
+            if (int.TryParse(sb.ToString(), out result)) return result;
 
             return null;
         }
@@ -51,7 +52,8 @@ namespace InvoiceAPI.Tools
 
             if (start < 0) return null;
             if (length < 0) return null;
-            if (double.TryParse(s.Substring(start, length), out double result)) return result / 100;
+            double result;
+            if (double.TryParse(s.Substring(start, length), out result)) return result / 100;
             return null;
         }
     }
