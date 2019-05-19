@@ -32,7 +32,7 @@ namespace InvoiceAPI.Controllers
         public async Task<string> Post()
         {
             HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
-            return pdfParser.GenerateJsonResponse(HttpContext.Current.Request);
+            return await pdfParser.GenerateJsonResponse(HttpContext.Current.Request);
         }
     }
 }

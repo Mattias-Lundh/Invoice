@@ -3,20 +3,22 @@ using iTextSharp.text.pdf;
 using System.IO;
 using System;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace InvoiceAPI.Tools
 {
     public class PdfParser : IPdfParser
     {
-        public PdfParser(IDataExtractor dataExtractor)
+        public  PdfParser(IDataExtractor dataExtractor)
         {
             this.dataExtractor = dataExtractor;
         }
 
         private IDataExtractor dataExtractor;
 
-        public string GenerateJsonResponse(HttpRequest request)
+        public async Task<string> GenerateJsonResponse(HttpRequest request)
         {
+            await Task.Delay(2000);
             if (request.Files.Count < 1) throw new Exception("file not found");
 
             return dataExtractor.ExtractInvoiceParamsAsJson(GetPdfTextArray(request.Files[0].InputStream));

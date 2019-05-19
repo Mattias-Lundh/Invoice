@@ -30,10 +30,26 @@ function SendFile(file) {
         processData: false,
         contentType: false,
         type: 'POST',
+        beforeSend: showLoading,
         success: function (data) {
+            removeLoading();
             LoadPdfData(JSON.parse(data));
         }
     });
+}
+
+function removeLoading() {
+    document.querySelector("#loader").hidden = true;
+}
+
+function showLoading() {
+    if (Math.random() < 0.05) {
+        let easteregg = document.querySelector("#easteregg");
+        let loaderimage = document.querySelector("#loader");
+        easteregg.id = "loader";
+        loaderimage.id = "easteregg";
+    }
+    document.querySelector("#loader").hidden = false;
 }
 
 // Knockout 
